@@ -27,6 +27,15 @@ namespace Contoso.Service
         {
             return instructorRepository.GetById(Id);
         }
+        
+        public void CreateInstructor(Instructor instructor)
+        {
+            instructorRepository.Add(instructor);
+        }
+        public void UpdateInstructor(Instructor instructor)
+        {
+            instructorRepository.Update(instructor);
+        }
     }
 
     public interface IInstructorService
@@ -34,5 +43,7 @@ namespace Contoso.Service
         IEnumerable<Instructor> GetAllInstructors();
 
         Instructor GetInstructorById(int Id);
+        void CreateInstructor(Instructor instructor);
+        void UpdateInstructor(Instructor instructor);
     }
 }

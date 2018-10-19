@@ -34,7 +34,12 @@ namespace Contoso.Service
                 departmentRepository.Add(department);
                 departmentRepository.SaveChanges();
                 
-        }   
+        } 
+        public void UpdateDepartment(Department department)
+        {
+            departmentRepository.Update(department);
+            departmentRepository.SaveChanges();
+        }
     }
 
     public interface IDepartmentService
@@ -43,5 +48,6 @@ namespace Contoso.Service
 
         Department GetDepartmentById(int Id);
         void CreateDepartment(Department department);
+        void UpdateDepartment(Department department);
     }
 }

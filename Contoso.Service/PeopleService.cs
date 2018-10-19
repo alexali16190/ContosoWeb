@@ -27,6 +27,14 @@ namespace Contoso.Service
         {
             return peopleRepository.GetById(Id);
         }
+        public void AddPeople(People people)
+        {
+            peopleRepository.Add(people);
+        }
+        public void UpdatePeople(People people)
+        {
+            peopleRepository.Update(people);
+        }
     }
 
     public interface IPeopleService
@@ -34,5 +42,7 @@ namespace Contoso.Service
         IEnumerable<People> GetAllPeople();
 
         People GetPeopleById(int Id);
+        void AddPeople(People people);
+        void UpdatePeople(People people);
     }
 }

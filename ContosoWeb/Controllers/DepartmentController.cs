@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using Contoso.Model;
 using System.Net;
 using Contoso.Model.Models;
+using ContosoWeb.DTO;
 
 namespace ContosoWeb.Controllers
 {
@@ -35,6 +36,33 @@ namespace ContosoWeb.Controllers
             departmentService.CreateDepartment(department);
             return View();
            
+        }
+        [HttpGet]
+        //public ActionResult Update()
+        //{
+        //    departmentService.GetDepartmentById();
+        //    return View();
+        //}
+        //[HttpPost]
+        //public ActionResult Update(Department department)
+        //{
+        //    departmentService.UpdateDepartment(department);
+        //    return View();
+        //}
+
+        public JsonResult Index1()
+        {
+            var departments = departmentService.GetAllDepartments();
+            List<DepartmentDTO> dTOs = new List<DepartmentDTO>();
+            foreach (var department in departments)
+            {
+                dTOs.Add(new DepartmentDTO { Id = department.Id, Budget = department.Budget, Name = department.Name });
+            }
+            return Json(departmentService.GetAllDepartments(), JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Create1()
+        {
+            return View();
         }
         
        

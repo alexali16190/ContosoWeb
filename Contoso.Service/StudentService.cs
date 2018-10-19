@@ -27,6 +27,7 @@ namespace Contoso.Service
         {
             return studentRepository.GetById(Id);
         }
+        
     }
 
     public interface IStudentService
