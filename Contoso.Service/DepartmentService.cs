@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Contoso.Data.Repositories;
 using Contoso.Data;
+using Contoso.Model.Common;
+using System.Activities.Statements;
 
 namespace Contoso.Service
 {
@@ -26,6 +28,13 @@ namespace Contoso.Service
         {
             return departmentRepository.GetById(Id);
         }
+
+        public void CreateDepartment(Department department)
+        { 
+                departmentRepository.Add(department);
+                departmentRepository.SaveChanges();
+                
+        }   
     }
 
     public interface IDepartmentService
@@ -33,5 +42,6 @@ namespace Contoso.Service
         IEnumerable<Department> GetAllDepartments();
 
         Department GetDepartmentById(int Id);
+        void CreateDepartment(Department department);
     }
 }
