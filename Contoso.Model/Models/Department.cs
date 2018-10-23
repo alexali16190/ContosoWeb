@@ -22,6 +22,6 @@ namespace Contoso.Model.Models
 
         public byte?[] RowVersion { get; set; }
 
-        public virtual Instructor Instructor { get; set; }
+        public Instructor Instructor { get; set; }
     }
 }
